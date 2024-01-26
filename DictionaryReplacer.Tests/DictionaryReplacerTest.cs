@@ -25,5 +25,20 @@ namespace DictionaryReplacer.Tests
             // Assert
             Assert.Equal("", result);
         }
+
+        [Fact]
+        public void TestEmptyDictionary()
+        {
+            //arrange
+            var dictionary = new Dictionary<string, string>();
+            var replacer = new DictionaryReplacer.Bibliotheque.DictionaryReplacer();
+            var stringInput = "a";
+
+            //Act
+            string result = replacer.Replace(stringInput, dictionary);
+
+            // Assert
+            Assert.Equal("a", result);
+        }
     }
 }
