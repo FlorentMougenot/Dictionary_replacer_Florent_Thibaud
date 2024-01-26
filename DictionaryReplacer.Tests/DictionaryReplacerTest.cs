@@ -40,5 +40,23 @@ namespace DictionaryReplacer.Tests
             // Assert
             Assert.Equal("a", result);
         }
+
+        [Fact]
+        public void TestReplaceCorrectOn1Word()
+        {
+            //arrange
+            var dictionary = new Dictionary<string, string>
+        {
+            { "Floflo", "PetiteuhFleur" }
+        };
+            var replacer = new DictionaryReplacer.Bibliotheque.DictionaryReplacer();
+            var stringInput = "$Floflo$";
+
+            //Act
+            string result = replacer.Replace(stringInput, dictionary);
+
+            // Assert
+            Assert.Equal("PetiteuhFleur", result);
+        }
     }
 }
