@@ -8,7 +8,15 @@
             {
                 return input;
             }
-            throw new NotImplementedException();
+
+            foreach (var entry in dictionary)
+            {
+                string motentree = entry.Key;
+                string sortiedictionnaire = entry.Value;
+                input = input.Replace($"${motentree}$", sortiedictionnaire);
+            }
+
+            return input;
         }
     }
 }
