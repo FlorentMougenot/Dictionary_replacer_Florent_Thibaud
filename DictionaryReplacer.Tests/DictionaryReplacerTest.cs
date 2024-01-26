@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Xunit;
 using System.Collections.Generic;
 using DictionaryReplacer.Bibliotheque;
+using Newtonsoft.Json.Linq;
 
 namespace DictionaryReplacer.Tests
 {
@@ -57,6 +58,24 @@ namespace DictionaryReplacer.Tests
 
             // Assert
             Assert.Equal("PetiteuhFleur", result);
+        }
+
+        [Fact]
+        public void TestWordNotInDictionary()
+        {
+            //arrange
+            var dictionary = new Dictionary<string, string>
+        {
+            { "Floflo", "PetiteuhFleur" }
+        };
+            var replacer = new DictionaryReplacer.Bibliotheque.DictionaryReplacer();
+            var stringInput = "$a$";
+
+            //Act
+            string result = replacer.Replace(stringInput, dictionary);
+
+            // Assert
+            Assert.Equal("$a$", result);
         }
     }
 }

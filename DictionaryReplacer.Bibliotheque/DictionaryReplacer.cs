@@ -8,14 +8,15 @@
             {
                 return input;
             }
-
-            foreach (var entry in dictionary)
+            else
             {
-                string motentree = entry.Key;
-                string sortiedictionnaire = entry.Value;
-                input = input.Replace($"${motentree}$", sortiedictionnaire);
+                foreach (var entry in dictionary)
+                {
+                    string motentree = entry.Key;
+                    string sortiedictionnaire = entry.Value;
+                    input = input.Replace($"${motentree}$", sortiedictionnaire);
+                }
             }
-
             return input;
         }
     }
