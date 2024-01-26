@@ -8,6 +8,10 @@
             {
                 return input;
             }
+            if (dictionary == null || dictionary.Count == 0)
+            {
+                return input;
+            }
             throw new NotImplementedException();
         }
     }
